@@ -41,14 +41,16 @@ Monitoring and fan control for UniFi UNAS with native Home Assistant integration
 - **UNAS 4**
 - **UNAS 2**
 - **UNVR** – Unofficial support (see note below)
+- **UNVR Instant** – Unofficial support (see note below)
 - **UNVR Pro** – Unofficial support (see note below)
 
-> **UNVR Note:** The UNVR and UNVR Pro are not UNAS devices, but this integration has been confirmed to work with them
-> in [#11](https://github.com/cardouken/homeassistant-unifi-unas/issues/11). Support is unofficial and may have
-> limitations, and not all current or future features may work in future releases. The integration will show UniFi
-> Protect version instead of UniFi Drive version and will prefix entities with `unvr_` instead of `unas_`.
+> **UNVR Note:** UNVR devices are not UNAS devices. The UNVR and UNVR Pro have been confirmed to work in
+> [#11](https://github.com/cardouken/homeassistant-unifi-unas/issues/11); UNVR Instant support was added in [#35](https://github.com/cardouken/homeassistant-unifi-unas/pull/35).
+> Support is unofficial and may have limitations, and not all current or future features may work in future releases.
+> The integration will show UniFi Protect version instead of UniFi Drive version and will prefix entities with `unvr_`
+> instead of `unas_`.
 >
-> During setup, just use your UNVR/UNVR Pro IP and credentials.
+> During setup, use your UNVR device's IP and credentials.
 
 ## What's Included
 
