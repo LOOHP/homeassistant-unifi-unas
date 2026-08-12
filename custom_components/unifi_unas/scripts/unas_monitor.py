@@ -84,6 +84,10 @@ BAY_MAPPINGS = {
         "5": "2",
         "7": "1"
     },
+    # UNVR Instant - user-reported mapping from pr #35
+    "UNVR_INSTANT": {
+        "1": "1"
+    },
     # UNVR Pro - user-reported mapping from issue #11
     "UNVR_PRO": {
         "1": "6",
