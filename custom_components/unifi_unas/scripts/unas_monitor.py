@@ -84,9 +84,10 @@ BAY_MAPPINGS = {
         "5": "2",
         "7": "1"
     },
-    # UNVR Instant has one user-accessible SATA bay. Its bay assignment does
-    # not depend on the internal ATA port exposed by a particular firmware.
-    "UNVR_INSTANT": {},
+    # UNVR Instant - user-reported mapping from pr #35
+    "UNVR_INSTANT": {
+        "1": "1"
+    },
     # UNVR Pro - user-reported mapping from issue #11
     "UNVR_PRO": {
         "1": "6",
@@ -495,13 +496,9 @@ class UNASMonitor:
         output = self.run_cmd(['udevadm', 'info', '-q', 'path', '-n', f'/dev/{device}'])
         bay = None
         for part in output.split('/'):
-            if part.startswith('ata'):
-                if len(ATA_TO_BAY) <= 0:
-                    bay = "1"
-                    break
-                if (ata_num := part[3:]) in ATA_TO_BAY:
-                    bay = ATA_TO_BAY[ata_num]
-                    break
+            if part.startswith('ata') and (ata_num := part[3:]) in ATA_TO_BAY:
+                bay = ATA_TO_BAY[ata_num]
+                break
 
         self.bay_cache[device] = bay
         return bay
