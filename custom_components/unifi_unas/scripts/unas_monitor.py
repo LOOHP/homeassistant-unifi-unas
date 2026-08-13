@@ -271,12 +271,10 @@ class UNASMonitor:
         if DEVICE_MODEL.startswith("UNVR"):
             pools = self.get_pools()
             bootstrap = self._fetch_protect_bootstrap()
-            corruption_state = (
-                bootstrap.get('nvr', {}).get('corruptionState', 'unknown')
-                if bootstrap else 'unknown'
-            )
-            for pool in pools:
-                pool['status'] = corruption_state
+            if bootstrap:
+                corruption_state = (bootstrap.get('nvr') or {}).get('corruptionState') or 'unknown'
+                for pool in pools:
+                    pool['status'] = corruption_state
             return pools
 
         data = self._fetch_api('/api/v2/storage')
